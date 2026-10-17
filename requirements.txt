@@ -1,0 +1,10 @@
+groq
+ipython
+langchain
+langchain-core
+langchain-groq
+langgraph
+langgraph-checkpoint-sqlite
+pydantic
+python-dotenv
+streamlit

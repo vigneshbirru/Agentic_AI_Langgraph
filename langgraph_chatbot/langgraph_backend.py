@@ -11,8 +11,10 @@ import time
 
 load_dotenv()
 
-llm = ChatGroq(model="openai/gpt-oss-20b")
-
+llm = ChatGroq(
+    model="openai/gpt-oss-120b",
+    temperature=0.9,
+)
 class ChatState(TypedDict):
     messages: Annotated[list[BaseMessage],add_messages]
     
@@ -33,11 +35,3 @@ graph.add_edge("chat_node",END)
 
 chatbot = graph.compile(checkpointer=checkpointer)
 
-# for message_chunk, metadata in chatbot.stream(
-#     {'messages': [HumanMessage(content='what is recipe to make pasta')]},
-#     config ={'configurable': {'thread_id':"thread-1"}},
-#     stream_mode = "messages"
-# ):
-
-#     if message_chunk.content:
-#         print(message_chunk.content, end=" ", flush=True)
